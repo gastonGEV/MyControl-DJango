@@ -1,0 +1,11 @@
+{% extends 'myControl/base.html' %}
+
+{% block content %}
+  <h3>Incidencia</h3>
+  <p>Titulo: {{ incidencia.title }}</p>
+  <p>Monto: {{ incidencia.mount }}</p>
+  <p>Descripcion: {{ incidencia.desc }}</p>
+  <p>Tipo Incidencia: {{ incidencia.tipo }}</p>
+  <p>Medio de pago: {{ incidencia.medPago }}</p>
+  <p>Fecha Incidencia: {{ incidencia.created_date }}</p>
+{% endblock %}

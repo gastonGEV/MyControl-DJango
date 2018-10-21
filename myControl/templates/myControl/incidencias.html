@@ -1,0 +1,31 @@
+{% extends 'myControl/base.html' %}
+
+
+{% block content %}
+<div class="box">
+  <h3>Ultimas incidencias registradas</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Incidencia</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Monto</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for incidencia in incidencias %}
+        <tr>
+          <th scope="row">{{ incidencia.id }}</th>
+          <td><a href="incidencias/show/{{incidencia.id}}">{{ incidencia.title }}</a></td>
+          <td>{{ incidencia.created_date }}</td>
+          <td>{{ incidencia.tipo }}</td>
+          <td>{{ incidencia.mount }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+</div>
+{% endblock %}
+

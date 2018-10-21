@@ -17,3 +17,28 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Tipo(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+class MedPago(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+class Incidencia(models.Model):
+    title = models.CharField(max_length=200)
+    mount = models.IntegerField()
+    desc = models.CharField(max_length=200)
+    tipo = models.ForeignKey('Tipo', on_delete=models.CASCADE)
+    medPago = models.ForeignKey('MedPago', on_delete=models.CASCADE)
+    created_date = models.DateTimeField(
+        default=timezone.now)
+
+    def __str__(self):
+        return self.title
