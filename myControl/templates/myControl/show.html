@@ -1,11 +1,16 @@
 {% extends 'myControl/base.html' %}
 
 {% block content %}
-  <h3>Incidencia</h3>
-  <p>Titulo: {{ incidencia.title }}</p>
-  <p>Monto: {{ incidencia.mount }}</p>
-  <p>Descripcion: {{ incidencia.desc }}</p>
-  <p>Tipo Incidencia: {{ incidencia.tipo }}</p>
-  <p>Medio de pago: {{ incidencia.medPago }}</p>
-  <p>Fecha Incidencia: {{ incidencia.created_date }}</p>
+  <div class="show__container">
+    <div class="show__internal">
+      <h3 class="title__three title__three-3">Incidencia</h3>
+      <p class="title">Titulo: <p>{{ incidencia.title }}</p></p>
+      <p class="monto">Monto: <p>{{ incidencia.mount }}</p></p>
+      <p class="desc">Descripcion: <p>{{ incidencia.desc }}</p></p>
+      <p class="tipo">Tipo Incidencia: <p>{{ incidencia.tipo }}</p></p>
+      <p class="mp">Medio de pago: <p>{{ incidencia.medPago }}</p></p>
+      <p class="fecha">Fecha Incidencia: <p>{{ incidencia.created_date }}</p></p>
+    </div>
+  </div>
+ 
 {% endblock %}

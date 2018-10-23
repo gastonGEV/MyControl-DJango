@@ -35,6 +35,7 @@ class Incidencia(models.Model):
     title = models.CharField(max_length=200)
     mount = models.IntegerField()
     desc = models.CharField(max_length=200)
+    # user = models.ForeignKey('User', on_delete=models.CASCADE)
     tipo = models.ForeignKey('Tipo', on_delete=models.CASCADE)
     medPago = models.ForeignKey('MedPago', on_delete=models.CASCADE)
     created_date = models.DateTimeField(

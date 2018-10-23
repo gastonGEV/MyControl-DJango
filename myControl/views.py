@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Post
 from .models import Incidencia
-
+from django.db.models import Sum
 
 def post_list(request):
     posts = Post.objects.filter(
@@ -11,8 +11,10 @@ def post_list(request):
 
 def incidencia_list(request):
     incidencias = Incidencia.objects.all()
-    return render(request, 'myControl/incidencias.html', {'incidencias': incidencias})
+    ingresos = Incidencia.objects.filter(tipo=1).aggregate(Sum('mount'))
+    gastos = Incidencia.objects.filter(tipo=2).aggregate(Sum('mount'))
+    return render(request, 'myControl/incidencias.html', {'incidencias': incidencias, 'ingresos':ingresos, 'gastos':gastos})
 
 def incidencia(request, id):
     incidencia = Incidencia.objects.get(pk=id)
-    return render(request, 'myControl/show.html', {'incidencia': incidencia} )
+    return render(request, 'myControl/show.html', {'incidencia': incidencia})

@@ -1,47 +1,81 @@
-.page-header {
-    background-color: #ff9400;
-    margin-top: 0;
-    padding: 20px 20px 20px 40px;
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
 
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #ffffff;
-    font-size: 36pt;
-    text-decoration: none;
+html {
+    font-size: 62.5%;
 }
 
-.content {
-    margin-left: 40px;
+body {
+    box-sizing: border-box;
+    background-color: #f5f6f7;
+} 
+
+.title__three {
+    font-size: 2rem;
+    color: #fff;
+    margin-right: 1rem;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+.title__three-2 {
+    color: black;
+    margin: 2rem 0 1.5rem 1.5rem;
 }
 
-.date {
-    float: right;
-    color: #828282;
+.title__three-3 {
+    color:  #40c4dc;
+    text-transform: uppercase;
 }
 
-.save {
-    float: right;
+.mini__title {
+    color: #fff;
+    font-size: 1.2rem;
 }
 
-.post-form textarea, .post-form input {
+.title__container {
+    display: flex;
+    align-items: center;
+    background-color: #242424  ;
     width: 100%;
+    padding: 1rem;
 }
 
-.top-menu, .top-menu:hover, .top-menu:visited {
-    color: #ffffff;
-    float: right;
-    font-size: 26pt;
-    margin-right: 20px;
+
+/** Show **/
+.show__container {
+   width: 100%;
 }
 
-.post {
-    margin-bottom: 70px;
+.show__internal {
+    text-align: center;
+    font-size: 1.8rem;   
 }
 
-.post h1 a, .post h1 a:visited {
-    color: #000000;
+.title, .monto, .desc, .tipo, .mp, .fecha {
+    text-transform: uppercase;
+    color: red;
+}
+
+.title {
+    padding-top: 1rem;
+}
+
+
+/** INci**/
+.inci {
+    background-color: #fff;
+    border-radius: 1rem;
+}
+
+.inci__title {
+    border-bottom: 1px solid grey;
+}
+
+.inci__container {
+    padding: 1rem;
+    width: 100%;
 }
