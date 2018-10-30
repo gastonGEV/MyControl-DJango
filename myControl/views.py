@@ -1,13 +1,12 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post
 from .models import Incidencia
 from django.db.models import Sum
 
-def post_list(request):
-    posts = Post.objects.filter(
-        published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'myControl/post_list.html', {'posts': posts})
+# def post_list(request):
+#     posts = Post.objects.filter(
+#         published_date__lte=timezone.now()).order_by('published_date')
+#     return render(request, 'myControl/post_list.html', {'posts': posts})
 
 def incidencia_list(request):
     incidencias = Incidencia.objects.all()
@@ -18,3 +17,7 @@ def incidencia_list(request):
 def incidencia(request, id):
     incidencia = Incidencia.objects.get(pk=id)
     return render(request, 'myControl/show.html', {'incidencia': incidencia})
+
+def calendar(request, id):
+    incidencias = Incidencia.objects.filter(created_date__month=id)
+    return render(request, 'myControl/calendar.html', {'incidencias':incidencias})
