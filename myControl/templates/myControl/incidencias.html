@@ -30,6 +30,24 @@
               {% endfor %}
               </tbody>
             </table>
+            <div class="pagination">
+                <span class="step-links">
+                  {% if incidencias.has_previous %}
+                      <a href="?page=1">&laquo; first</a>
+                      <a href="?page={{ incidencias.previous_page_number }}">previous</a>
+                  {% endif %}
+
+                  <span class="current">
+                      Page {{ incidencias.number }} of {{ incidencias.paginator.num_pages }}.
+                  </span>
+
+                  {% if incidencias.has_next %}
+                      <a href="?page={{ incidencias.next_page_number }}">next</a>
+                      <a href="?page={{ incidencias.paginator.num_pages }}">last &raquo;</a>
+                  {% endif %}
+              </span>
+            </div>
+
       </div>
         
       </div>
@@ -40,7 +58,37 @@
         </div>
       </div>
 
-      <div class="col-md-6 padding-md">
+      <div class="row">
+        <div class="col-md-6"> 
+          <!-- Categories Widget -->
+          <div class="card my-8" id="select">
+              <h5 class="card-header">Mes</h5>
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <div class="form-group">
+                            <select class="form-control" id="mes" onchange="location = this.value;">
+                              <option>Mes</option>
+                              <option value="1">Enero</option></a>
+                              <option value="2">Febrero</option>
+                              <option value="3">Marzo</option>
+                              <option value="4">Abril</option>
+                              <option value="5">Mayo</option>
+                              <option value="6">Junio</option>
+                              <option value="7">Julio</option>
+                              <option value="8">Agosto</option>
+                              <option value="9">Septiembre</option>
+                              <option value="10">Octubre</option>
+                              <option value="11">Noviembre</option>
+                              <option value="12">Diciembre</option>
+                            </select>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-12 padding-md">
           <div class="inci">
             <div class="inci__title">
                 <h3 class="title__three title__three-2">
@@ -55,6 +103,10 @@
           </div>   
       </div>
     </div>
+      </div>
+      
+
+      
 </div>
 <sidebar>
     <div class="logo">logo</div>
@@ -69,7 +121,7 @@
         <i class="menu__icon fa fa-home"></i>
         <span class="menu__text">Ingreso y gastos</span>
       </a>
-      <a class="menu__item" href="/calendar/10">
+      <a class="menu__item" href="/calendar/1">
         <i class="menu__icon fa fa-envelope"></i>
         <span class="menu__text">Calendario de gastos</span>
       </a>
@@ -102,8 +154,16 @@
       series: [{
           name: 'Delivered amount',
           data: [
+            {% if ingresos.mount__sum %}
               ['Ingresos', {{ingresos.mount__sum}} ],
+            {% else %}
+                ['Ingresos', 0 ],
+            {%endif%}
+            {% if gastos.mount__sum %}
               ['Gastos', {{gastos.mount__sum}}],
+            {% else %}
+                ['Gastos', 0 ],
+            {%endif%}
           ]
       }]
     });
