@@ -15,12 +15,24 @@ def incidencia_list(request, id=1):
     ingresos = Incidencia.objects.filter(tipo=1, created_date__month=id).aggregate(Sum('mount'))
     gastos = Incidencia.objects.filter(tipo=2, created_date__month=id).aggregate(Sum('mount'))
 
+    for key, value in ingresos.items():
+      if (value):
+        ingProm = value / 30
+      else:
+        ingProm = 0
+
+    for key, value in gastos.items():
+      if (value):
+        gasProm = value / 30
+      else:
+        gasProm = 0
+
     paginator = Paginator(incidencia_list, 5)  # Show 10 incidencias per page
 
     page = request.GET.get('page')
     incidencias = paginator.get_page(page)
 
-    return render(request, 'myControl/incidencias.html', {'incidencias': incidencias, 'ingresos':ingresos, 'gastos':gastos})
+    return render(request, 'myControl/incidencias.html', {'incidencias': incidencias, 'ingresos':ingresos, 'gastos':gastos, 'ingProm':ingProm, 'gasProm':gasProm})
 
 def incidencia(request, id):
     incidencia = Incidencia.objects.get(pk=id)

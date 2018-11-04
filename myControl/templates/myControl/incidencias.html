@@ -3,22 +3,22 @@
 
 {% block content %}
 <div class="wrapper">
-<div class="box">
-  <div class="row">
-    <div class="col-md-6 padding-md">
-      <h3 class="title__three title__three-2">Ultimas incidencias registradas</h3>
-      <div class="inci">
+  <div class="box">
+    <div class="row">
+      <div class="col-md-6 padding-md">
+        <h3 class="title__three title__three-2">Ultimas incidencias registradas</h3>
+        <div class="inci">
           <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Incidencia</th>
-                  <th scope="col">Fecha</th>
-                  <th scope="col">Tipo</th>
-                  <th scope="col">Monto</th>
-                </tr>
-              </thead>
-              <tbody>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Incidencia</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Monto</th>
+              </tr>
+            </thead>
+            <tbody>
               {% for incidencia in incidencias %}
                 <tr>
                   <th scope="row">{{ incidencia.id }}</th>
@@ -28,87 +28,102 @@
                   <td>{{ incidencia.mount }}</td>
                 </tr>
               {% endfor %}
-              </tbody>
-            </table>
-            <div class="pagination">
-                <span class="step-links">
-                  {% if incidencias.has_previous %}
-                      <a href="?page=1">&laquo; first</a>
-                      <a href="?page={{ incidencias.previous_page_number }}">previous</a>
-                  {% endif %}
-
-                  <span class="current">
-                      Page {{ incidencias.number }} of {{ incidencias.paginator.num_pages }}.
-                  </span>
-
-                  {% if incidencias.has_next %}
-                      <a href="?page={{ incidencias.next_page_number }}">next</a>
-                      <a href="?page={{ incidencias.paginator.num_pages }}">last &raquo;</a>
-                  {% endif %}
+            </tbody>
+          </table>
+          <div class="pagination">
+            <span class="step-links">
+              {% if incidencias.has_previous %}
+                  <a href="?page=1">&laquo; first</a>
+                  <a href="?page={{ incidencias.previous_page_number }}">previous</a>
+              {% endif %}
+              <span class="current">
+                  Page {{ incidencias.number }} of {{ incidencias.paginator.num_pages }}.
               </span>
-            </div>
-
-      </div>
-        
-      </div>
-      
-      <div class="row padding-top-lg">
-        <div class="col-md-6">
-          <div id="container" style="height: 400px"></div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6"> 
-          <!-- Categories Widget -->
-          <div class="card my-8" id="select">
-              <h5 class="card-header">Mes</h5>
-              <div class="card-body">
-                  <div class="row">
-                      <div class="col-lg-12">
-                          <div class="form-group">
-                            <select class="form-control" id="mes" onchange="location = this.value;">
-                              <option>Mes</option>
-                              <option value="1">Enero</option></a>
-                              <option value="2">Febrero</option>
-                              <option value="3">Marzo</option>
-                              <option value="4">Abril</option>
-                              <option value="5">Mayo</option>
-                              <option value="6">Junio</option>
-                              <option value="7">Julio</option>
-                              <option value="8">Agosto</option>
-                              <option value="9">Septiembre</option>
-                              <option value="10">Octubre</option>
-                              <option value="11">Noviembre</option>
-                              <option value="12">Diciembre</option>
-                            </select>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+              {% if incidencias.has_next %}
+                  <a href="?page={{ incidencias.next_page_number }}">next</a>
+                  <a href="?page={{ incidencias.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
           </div>
         </div>
-        <div class="col-md-12 padding-md">
-          <div class="inci">
-            <div class="inci__title">
-                <h3 class="title__three title__three-2">
-                    Agregar...  
-                </h3>
-              </div>
-              <div class="inci__container">
-                <button type="button" class="btn btn-primary btn-lg">Nueva incidencia</button>
-                <button type="button" class="btn btn-warning  btn-lg">Nuevo tipo de incidencia</button>
-                <button type="button" class="btn btn-danger btn-lg">Nuevo medio de Pago</button>
-              </div>
-          </div>   
+      </div>
+      <div class="col-md-6 padding-md">
+        <div id="container" style="height: 400px"></div>
       </div>
     </div>
+    <!--Mes-->
+    <div class="row">
+      <div class="col-md-3"> 
+        <!-- Categories Widget -->
+        <div class="card my-8" id="select">
+          <h5 class="card-header">Mes</h5>
+          <div class="card-body">
+            <div class="form-group">
+              <select class="form-control" id="mes" onchange="location = this.value;">
+                <option>Mes</option>
+                <option value="1">Enero</option></a>
+                <option value="2">Febrero</option>
+                <option value="3">Marzo</option>
+                <option value="4">Abril</option>
+                <option value="5">Mayo</option>
+                <option value="6">Junio</option>
+                <option value="7">Julio</option>
+                <option value="8">Agosto</option>
+                <option value="9">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+              </select>
+            </div>
+          </div>
+        </div>
       </div>
-      
+    </div>
+    <!--Btns-->
+    <div class ="row">
+      <div class="col-md-6 padding-md">
+        <div class="inci">
+          <div class="inci__title">
+            <h3 class="title__three title__three-2">
+              Agregar...  
+            </h3>
+          </div>
+          <div class="inci__container">
+            <button type="button" class="btn btn-primary btn-lg">Nueva incidencia</button>
+            <button type="button" class="btn btn-warning  btn-lg">Nuevo tipo de incidencia</button>
+            <button type="button" class="btn btn-danger btn-lg">Nuevo medio de Pago</button>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-md-6">
+        <div class="card text-white bg-success mb-3" >
+          <div class="card-header">Ingreso promedio diario</div>
+          <div class="card-body">
+            {% if ingProm %}
+              <h5 class="card-title">${{ ingProm|floatformat:"2" }}</h5>
+            {% else %}
+              <h5 class="card-title">Sin ingresos</h5>
+            {% endif %}
+          </div>
+        </div>
+        <div class="card text-white bg-danger mb-3" >
+          <div class="card-header">Gasto promedio diario</div>
+          <div class="card-body">
+            {% if gasProm %}
+              <h5 class="card-title">${{ gasProm|floatformat:"2" }}</h5>
+            {% else %}
+              <h5 class="card-title">Sin gastos</h5>
+            {% endif %}
+          </div>
+        </div>
+      </div>
 
-      
-</div>
-<sidebar>
+    </div>
+
+  </div>
+  
+  <sidebar> 
     <div class="logo">logo</div>
     <div class="avatar">
       <div class="avatar__img">
