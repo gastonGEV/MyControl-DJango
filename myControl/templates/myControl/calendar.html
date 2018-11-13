@@ -65,12 +65,12 @@
                         {% for incidencia in incidencias %}
                           {% if incidencia.created_date|date:"d" == forloop.parentloop.counter|slugify %}
                             {% if incidencia.tipo == 1 %}
-                              <div id="info__calendar" class="p-3 mb-2 bg-success text-white"> 
+                              <div id="info__calendar" class="mb-2 bg-success text-white"> 
                                   {{ incidencia.mount }}
                                   {{ incidencia.tipo }} 
                               </div>
                             {% else %}
-                              <div id="info__calendar" class="p-3 mb-2 bg-danger text-white"> 
+                              <div id="info__calendar" class="mb-2 bg-danger text-white"> 
                                   {{ incidencia.mount }}
                                   {{ incidencia.tipo }} 
                               </div>
