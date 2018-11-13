@@ -48,7 +48,11 @@
         </div>
       </div>
       <div class="col-md-6 padding-md">
-        <div id="container" style="height: 400px"></div>
+        {% if ingProm or gasProm %}
+          <div id="container" style="height: 400px"></div>
+        {% else %}
+          <div style="height: 400px"><h1>No hay incidencias<h1></div>
+        {% endif %}
       </div>
     </div>
     <!--Mes-->
